@@ -120,6 +120,6 @@ Dúvidas ou sugestões? Entre em contato com a equipe pelo GitHub ou pelo e-mail
 
 ## 🤖 Uso de Inteligência Artificial
 
-[Descrever quais ferramentas de IA foram usadas e para quê. Todo o código foi revisado e entendido pela equipe.]
+Utilizamos IA (Claude, da Anthropic) para ajudar na escrita e simplificação do código, na revisão, nos testes e no deploy na Vercel. Todo o código foi revisado, testado e é compreendido pela equipe.
 
 ## 📝 FIAP — Global Solution — 2026
