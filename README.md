@@ -70,7 +70,7 @@ VITE_API_URL=https://zerofood-zzer.onrender.com
 ### 🔗 Links do projeto
 
 - **Repositório GitHub:** [https://github.com/abrantes1/ZEROFOD-](https://github.com/abrantes1/ZEROFOD-)
-- **Deploy Vercel:** [preencher]
+- **Deploy Vercel:** [https://zerofod.vercel.app](https://zerofod.vercel.app)
 - **Vídeo YouTube:** [preencher]
 - **Repositório da API:** [https://github.com/di-zanon/ZeroFoodAPI](https://github.com/di-zanon/ZeroFoodAPI)
 
