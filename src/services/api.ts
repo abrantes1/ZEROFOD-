@@ -1,5 +1,5 @@
-// Endereço da API Java (definido no arquivo .env)
-const API = import.meta.env.VITE_API_URL
+// Endereço da API Java (vem do .env; se não existir, usa o Render)
+const API = import.meta.env.VITE_API_URL || 'https://zerofood-zzer.onrender.com'
 
 // Busca dados na API (GET)
 export async function get(caminho: string) {
