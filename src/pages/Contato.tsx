@@ -34,7 +34,7 @@ export default function Contato() {
       <div className="flex flex-[1_1_300px] flex-col gap-6">
         <Titulo titulo="Contato" subtitulo="Dúvidas, parcerias ou sugestões? Fale com a equipe ZeroFood." />
         <div className="flex flex-col gap-1 rounded-2xl bg-zf-escuro p-6 text-white">
-          <strong>E-mail</strong><span className="opacity-90">[e-mail de contato do grupo]</span>
+          <strong>GitHub</strong><a href="https://github.com/abrantes1/ZEROFOD-" target="_blank" className="opacity-90 underline">github.com/abrantes1/ZEROFOD-</a>
           <strong className="mt-3">Endereço</strong><span className="opacity-90">FIAP · São Paulo, SP</span>
         </div>
       </div>

@@ -1,101 +1,125 @@
-# ZeroFood — Front-end
+# 🥬 ZeroFood — Frontend
 
-## Objetivo
+Marketplace B2B hiperlocal que conecta pequenos estabelecimentos de alimentação (pizzarias, hamburguerias, padarias, lojas de açaí) para repassar insumos excedentes a preço de custo. O objetivo é combater o desperdício de alimentos no bairro, alinhado aos ODS 2, 11 e 12 da ONU.
 
-O ZeroFood é um marketplace B2B hiperlocal que conecta pequenos estabelecimentos de alimentação (pizzarias, hamburguerias, padarias, lojas de açaí) para o repasse de insumos excedentes a preço de custo, combatendo o desperdício de alimentos (CitizenTech, ODS 2, 11 e 12).
+## 🚀 Tecnologias
 
-## Links
-
-| | |
-|---|---|
-| GitHub (front-end) | [preencher] |
-| Aplicação na Vercel | [preencher] |
-| API Java (URL pública) | [preencher] |
-| Repositório da API | https://github.com/di-zanon/ZeroFoodAPI |
-| Vídeo no YouTube | [preencher] |
-
-## Tecnologias
-
-- React 18 + Vite + TypeScript (SPA)
+- React 18 + TypeScript
+- Vite 5
 - Tailwind CSS v4
-- React Router (rotas estáticas e com parâmetro)
-- Fetch API (sem Axios ou outras bibliotecas de requisição)
-- Back-end: Java + Spring Boot + Oracle (ZeroFoodAPI)
+- React Router DOM v6
+- Fetch API nativa
 
-## Como executar
+## 📁 Estrutura de Pastas
+
+```
+ZEROFOD-/
+├── public/
+│   ├── favicon.svg
+│   └── fotos/
+├── src/
+│   ├── components/
+│   │   ├── Header.tsx
+│   │   ├── Footer.tsx
+│   │   ├── Logo.tsx
+│   │   ├── Titulo.tsx
+│   │   └── ui.tsx
+│   ├── data/
+│   │   └── integrantes.ts
+│   ├── pages/
+│   │   ├── Home.tsx
+│   │   ├── Sobre.tsx
+│   │   ├── Integrantes.tsx
+│   │   ├── IntegranteDetalhe.tsx
+│   │   ├── Faq.tsx
+│   │   ├── Contato.tsx
+│   │   ├── Cadastro.tsx
+│   │   ├── Entrar.tsx
+│   │   ├── Ofertas.tsx
+│   │   ├── NovoAnuncio.tsx
+│   │   ├── Checkout.tsx
+│   │   └── Impacto.tsx
+│   ├── services/
+│   │   └── api.ts
+│   ├── App.tsx
+│   ├── main.tsx
+│   ├── sessao.ts
+│   ├── types.ts
+│   ├── utils.ts
+│   └── index.css
+├── index.html
+├── package.json
+├── vite.config.ts
+├── vercel.json
+└── README.md
+```
+
+## 📦 Como Usar
 
 ```bash
 npm install
-cp .env.example .env      # defina VITE_API_URL com a URL da API Java
 npm run dev
 ```
 
-Na Vercel, cadastre a variável de ambiente `VITE_API_URL` com a URL pública da API. O arquivo `vercel.json` faz as rotas abrirem direto pelo link.
-
-## Estrutura de pastas
+Crie um arquivo `.env` na raiz com a URL da API:
 
 ```
-src/
-├─ main.tsx              entrada: Router + contexto de sessão
-├─ App.tsx               todas as rotas
-├─ index.css             Tailwind + paleta do logo (#50b80d, #20863a, #075c2c)
-├─ types.ts              interfaces iguais aos DTOs da API
-├─ utils.ts              moeda, datas, máscara de CNPJ, taxa e teto de repasse
-├─ data/integrantes.ts   dados da equipe
-├─ services/api.ts       todas as chamadas HTTP com fetch (um CRUD por recurso)
-├─ context/Sessao.tsx    lojista atual guardado no navegador
-├─ components/           Header (com menu mobile), Footer, Logo, Titulo, campos de formulário
-└─ pages/                uma página por rota
+VITE_API_URL=https://zerofood-zzer.onrender.com
 ```
 
-## Páginas e rotas
+### 🔗 Links do projeto
 
-| Rota | Página | Tipo | Endpoints usados |
-|---|---|---|---|
-| `/` | Home | Institucional | — |
-| `/sobre` | Sobre | Institucional | — |
-| `/integrantes` | Integrantes | Institucional | — |
-| `/integrantes/:rm` | Detalhe do integrante | Rota com parâmetro | — |
-| `/faq` | FAQ | Institucional | — |
-| `/contato` | Contato (formulário validado) | Institucional | — |
-| `/cadastro` | Criar conta B2B (UC01) | Solução | `POST /api/lojistas` |
-| `/entrar` | Entrar pelo CNPJ | Solução | `GET /api/lojistas` |
-| `/ofertas` | Feed de ofertas (UC03) | Solução | `GET /api/anuncios`, `GET /api/categorias` |
-| `/anunciar` | Novo anúncio (UC02) | Solução | `GET/POST /api/insumos`, `POST /api/anuncios` |
-| `/checkout/:id` | Confirmar compra (UC04) | Solução, rota com parâmetro | `GET /api/anuncios/{id}`, `POST /api/transacoes` |
-| `/impacto` | Painel de impacto (HU07) | Solução | `GET /api/transacoes`, `/api/anuncios`, `/api/avaliacoes` |
+- **Repositório GitHub:** [https://github.com/abrantes1/ZEROFOD-](https://github.com/abrantes1/ZEROFOD-)
+- **Deploy Vercel:** [preencher]
+- **Vídeo YouTube:** [preencher]
+- **Repositório da API:** [https://github.com/di-zanon/ZeroFoodAPI](https://github.com/di-zanon/ZeroFoodAPI)
 
-## Regras de negócio no front
+## 🌐 API
 
-- **RN02 (teto de repasse):** se o preço passar de `TETO_REPASSE` (em `utils.ts`), o botão de publicar é bloqueado com um aviso.
-- **RN04 (Take Rate):** o anúncio simula o valor líquido com 10%. O valor real vem da API em `taxaTakeRate`.
-- **CNPJ:** máscara `00.000.000/0000-00`, pois a API exige 18 caracteres.
-- **Estados:** todas as telas com API mostram carregando, erro e lista vazia.
+Base URL: `https://zerofood-zzer.onrender.com/api`
 
-## Responsividade
+| Rota | Método | Descrição |
+|------|--------|-----------|
+| `/lojistas` | GET/POST | Listar/cadastrar estabelecimentos |
+| `/categorias` | GET | Listar categorias |
+| `/insumos` | GET/POST | Listar/cadastrar insumos |
+| `/anuncios` | GET/POST | Listar/publicar ofertas |
+| `/anuncios/:id` | GET | Detalhe da oferta |
+| `/transacoes` | GET/POST | Listar/registrar compras |
 
-Testar em 390 × 844 (mobile), 768 × 1024 (tablet) e 1440 × 900 (desktop). Abaixo de 1024 px o menu vira hambúrguer.
+## 🗺️ Rotas do site
 
-## Integrantes
+| Rota | Página |
+|------|--------|
+| `/` | Home |
+| `/sobre` | Sobre |
+| `/integrantes` | Integrantes |
+| `/integrantes/:rm` | Detalhe do integrante (rota com parâmetro) |
+| `/faq` | FAQ |
+| `/contato` | Contato |
+| `/cadastro` | Criar conta |
+| `/entrar` | Entrar pelo CNPJ |
+| `/ofertas` | Ofertas |
+| `/anunciar` | Novo anúncio |
+| `/checkout/:id` | Confirmar compra (rota com parâmetro) |
+| `/impacto` | Meu impacto |
 
-| Nome | RM | Turma |
-|---|---|---|
-| Kauan Sfrizo Mattos | 571599 | 1TDSPO |
-| Kauã de Deus Nunes | 572213 | 1TDSPO |
-| Diego de Oliveira Zanon Harnisch | 568945 | 1TDSPO |
-| Lucas Almeida Abrantes | 570546 | 1TDSPO |
-| Guilherme da Costa Campos | 571689 | 1TDSPO |
+## 👥 Autores e Créditos
 
-## Contato
+| Nome | RM | Turma | GitHub | LinkedIn |
+|------|----|-------|--------|----------|
+| Kauan Sfrizo Mattos | 571599 | 1TDSPO | [@KauanMattos](https://github.com/KauanMattos) | — |
+| Kauã de Deus Nunes | 572213 | 1TDSPO | [@Kaua056](https://github.com/Kaua056) | — |
+| Diego de Oliveira Zanon Harnisch | 568945 | 1TDSPO | [@di-zanon](https://github.com/di-zanon) | — |
+| Lucas Almeida Abrantes | 570546 | 1TDSPO | [@abrantes1](https://github.com/abrantes1) | — |
+| Guilherme da Costa Campos | 571689 | 1TDSPO | [@guilherme-campos](https://github.com/guilherme-campos) | — |
 
-[e-mail de contato do grupo]
+## 📬 Contato
 
-## Uso de Inteligência Artificial
+Dúvidas ou sugestões? Entre em contato com a equipe pelo GitHub ou pelo e-mail institucional da FIAP.
 
-[Descrever quais ferramentas de IA foram usadas e para quê, por exemplo apoio na estrutura inicial do código e revisão de texto. Todo o código foi revisado e entendido pela equipe.]
+## 🤖 Uso de Inteligência Artificial
 
-## Limitações conhecidas
+[Descrever quais ferramentas de IA foram usadas e para quê. Todo o código foi revisado e entendido pela equipe.]
 
-- A API não tem autenticação: o "login" localiza o lojista pelo CNPJ.
-- Geolocalização, upload de foto e gateway de pagamento real ainda não existem na API; a escolha Pix/cartão é visual.
-- O formulário de Contato valida e confirma na tela, mas não envia para um servidor.
+## 📝 FIAP — Global Solution — 2026
