@@ -1,0 +1,16 @@
+@import "tailwindcss";
+
+/* Paleta do logo ZeroFood */
+@theme {
+  --color-zf-lima: #50b80d;
+  --color-zf-verde: #20863a;
+  --color-zf-escuro: #075c2c;
+  --color-zf-creme: #fdf8f1;
+  --color-zf-claro: #e6f4dc;
+  --font-sans: "Inter", system-ui, sans-serif;
+  --font-display: "Montserrat", sans-serif;
+}
+
+body {
+  @apply bg-zf-creme text-neutral-800 font-sans;
+}
